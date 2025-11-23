@@ -1,0 +1,42 @@
+aimrt:
+  plugin:
+    plugins:
+      - name: zenoh_plugin
+        path: libaimrt_zenoh_plugin.so
+        options: 
+          shm_pool_size: 502400
+
+  log: # log配置
+    core_lvl: INFO # 内核日志等级，可选项：Trace/Debug/Info/Warn/Error/Fatal/Off，不区分大小写
+    backends: # 日志backends
+      - type: console # 控制台日志
+      - type: rotate_file
+        options:
+          path: ./log
+          filename: my_log.log
+          max_file_size_m: 4
+          max_file_num: 10
+  executor:
+    executors:
+      - name: control_module_executor
+        type: simple_thread
+
+  channel: # 消息队列相关配置
+    backends: # 消息队列后端配置
+      - type: zenoh
+    sub_topics_options: # 为 subscribe topic 选择后端
+      - topic_name: "(.*)"
+        enable_backends: [zenoh]
+    pub_topics_options: # 为 publish topic 选择后端
+      - topic_name: "(.*)"
+        enable_backends: [zenoh]
+
+  module:
+    modules:
+      - name: ControlModule
+        log_lvl: INFO
+
+# 模块自定义配置，框架会为每个模块生成临时配置文件，开发者通过Configurator接口获取该配置文件路径
+ControlModule:
+  joint_state_topic_name: /ur5/joint_state
+  joint_cmd_topic_name: /ur5/joint_command
