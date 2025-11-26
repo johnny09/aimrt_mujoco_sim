@@ -61,7 +61,7 @@ MujocoSimModule:
   sim_executor: work_thread_pool
   gui_executor: gui_thread
   subscriber_options:
-    - topic: /ur5/joint_command
+    - topic: /adamsp/joint_command
       type: joint_actuator
       options:
         joints:
@@ -124,7 +124,7 @@ MujocoSimModule:
           - name: right_wrist_roll_joint
             bind_joint: right_wrist_roll_joint
   publisher_options:
-    - topic: /ur5/joint_state
+    - topic: /adamsp/joint_state
       frequency: 500
       executor: work_thread_pool
       type: joint_sensor
