@@ -8,10 +8,10 @@ string(REGEX REPLACE ".*/\(.*\)" "\\1" CUR_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set_namespace()
 
 # module
-add_subdirectory(module/pid_control_module)
+# add_subdirectory(module/pid_control_module)
 
 # pkg
-add_subdirectory(pkg/inverted_pendulum_pkg)
+# add_subdirectory(pkg/inverted_pendulum_pkg)
 
 # install
 if(CMAKE_SYSTEM_NAME MATCHES "Linux")
@@ -28,5 +28,4 @@ string(REPLACE "::" "_" CUR_SUPERIOR_NAMESPACE_UNDERLINE ${CUR_SUPERIOR_NAMESPAC
 add_custom_target(
   ${CUR_SUPERIOR_NAMESPACE_UNDERLINE}_${CUR_DIR}_build_all ALL
   COMMAND ${CMAKE_COMMAND} -E copy_directory ${CUR_INSTALL_SOURCE_DIR}/bin ${CMAKE_BINARY_DIR}
-  DEPENDS aimrt::runtime::main
-          ${CUR_SUPERIOR_NAMESPACE}::${CUR_DIR}::inverted_pendulum_pkg)
+  DEPENDS aimrt::runtime::main)

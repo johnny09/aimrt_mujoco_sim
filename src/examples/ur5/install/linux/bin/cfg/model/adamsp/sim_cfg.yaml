@@ -1,0 +1,190 @@
+# Copyright (c) 2023, AgiBot Inc.
+# All rights reserved.
+
+aimrt:
+  plugin:
+    plugins:
+      # - name: net_plugin
+      #   path: ./libaimrt_net_plugin.so
+      #   options:
+      #     thread_num: 4
+      #     http_options:
+      #       listen_ip: 127.0.0.1
+      #       listen_port: 50080
+      - name: zenoh_plugin
+        path: ./libaimrt_zenoh_plugin.so
+        options: 
+          shm_pool_size: 502400
+  log:
+    core_lvl: INFO # Trace/Debug/Info/Warn/Error/Fatal/Off
+    backends:
+      - type: console
+  executor:
+    executors:
+      - name: gui_thread
+        type: simple_thread
+      - name: work_thread_pool
+        type: asio_thread
+        options:
+          thread_num: 4
+  channel:
+    backends:
+      - type: zenoh
+        options:
+          pub_topics_options:
+            - topic_name: "(.*)"
+              shm_enabled: true
+    sub_topics_options:
+      - topic_name: "(.*)"
+        enable_backends: [zenoh]
+    pub_topics_options:
+      - topic_name: "(.*)"
+        enable_backends: [zenoh]
+  rpc:
+    backends:
+      - type: zenoh
+    servers_options:
+      - func_name: "(.*)"
+        enable_backends: [zenoh]
+        enable_filters: [debug_log]
+  module:
+    pkgs:
+      - path: ./libmujoco_sim_pkg.so
+        enable_modules: [MujocoSimModule]
+    modules:
+      - name: MujocoSimModule
+        log_lvl: INFO
+
+# Module custom configuration
+MujocoSimModule:
+  simulation_model_path: ./cfg/model/adamsp/scene.xml
+  sim_executor: work_thread_pool
+  gui_executor: gui_thread
+  subscriber_options:
+    - topic: /ur5/joint_command
+      type: joint_actuator
+      options:
+        joints:
+          - name: left_hip_pitch_joint
+            bind_joint: left_hip_pitch_joint
+          - name: left_hip_roll_joint
+            bind_joint: left_hip_roll_joint
+          - name: left_hip_yaw_joint
+            bind_joint: left_hip_yaw_joint
+          - name: left_knee_joint
+            bind_joint: left_knee_joint
+          - name: left_ankle_pitch_joint
+            bind_joint: left_ankle_pitch_joint
+          - name: left_ankle_roll_joint
+            bind_joint: left_ankle_roll_joint
+          - name: right_hip_pitch_joint
+            bind_joint: right_hip_pitch_joint
+          - name: right_hip_roll_joint
+            bind_joint: right_hip_roll_joint
+          - name: right_hip_yaw_joint
+            bind_joint: right_hip_yaw_joint
+          - name: right_knee_joint
+            bind_joint: right_knee_joint
+          - name: right_ankle_pitch_joint
+            bind_joint: right_ankle_pitch_joint
+          - name: right_ankle_roll_joint
+            bind_joint: right_ankle_roll_joint
+          - name: waist_roll_joint
+            bind_joint: waist_roll_joint
+          - name: waist_pitch_joint
+            bind_joint: waist_pitch_joint
+          - name: waist_yaw_joint
+            bind_joint: waist_yaw_joint
+          - name: left_shoulder_pitch_joint
+            bind_joint: left_shoulder_pitch_joint
+          - name: left_shoulder_roll_joint
+            bind_joint: left_shoulder_roll_joint
+          - name: left_shoulder_yaw_joint
+            bind_joint: left_shoulder_yaw_joint
+          - name: left_elbow_joint
+            bind_joint: left_elbow_joint
+          - name: left_wrist_yaw_joint
+            bind_joint: left_wrist_yaw_joint
+          - name: left_wrist_pitch_joint
+            bind_joint: left_wrist_pitch_joint
+          - name: left_wrist_roll_joint
+            bind_joint: left_wrist_roll_joint
+          - name: right_shoulder_pitch_joint
+            bind_joint: right_shoulder_pitch_joint
+          - name: right_shoulder_roll_joint
+            bind_joint: right_shoulder_roll_joint
+          - name: right_shoulder_yaw_joint
+            bind_joint: right_shoulder_yaw_joint
+          - name: right_elbow_joint
+            bind_joint: right_elbow_joint
+          - name: right_wrist_yaw_joint
+            bind_joint: right_wrist_yaw_joint
+          - name: right_wrist_pitch_joint
+            bind_joint: right_wrist_pitch_joint
+          - name: right_wrist_roll_joint
+            bind_joint: right_wrist_roll_joint
+  publisher_options:
+    - topic: /ur5/joint_state
+      frequency: 500
+      executor: work_thread_pool
+      type: joint_sensor
+      options:
+        joints:
+          - name: left_hip_pitch_joint_sensor
+            bind_joint: left_hip_pitch_joint
+          - name: left_hip_roll_joint_sensor
+            bind_joint: left_hip_roll_joint
+          - name: left_hip_yaw_joint_sensor
+            bind_joint: left_hip_yaw_joint
+          - name: left_knee_joint_sensor
+            bind_joint: left_knee_joint
+          - name: left_ankle_pitch_joint_sensor
+            bind_joint: left_ankle_pitch_joint
+          - name: left_ankle_roll_joint_sensor
+            bind_joint: left_ankle_roll_joint
+          - name: right_hip_pitch_joint_sensor
+            bind_joint: right_hip_pitch_joint
+          - name: right_hip_roll_joint_sensor
+            bind_joint: right_hip_roll_joint
+          - name: right_hip_yaw_joint_sensor
+            bind_joint: right_hip_yaw_joint
+          - name: right_knee_joint_sensor
+            bind_joint: right_knee_joint
+          - name: right_ankle_pitch_joint_sensor
+            bind_joint: right_ankle_pitch_joint
+          - name: right_ankle_roll_joint_sensor
+            bind_joint: right_ankle_roll_joint
+          - name: waist_roll_joint_sensor
+            bind_joint: waist_roll_joint
+          - name: waist_pitch_joint_sensor
+            bind_joint: waist_pitch_joint
+          - name: waist_yaw_joint_sensor
+            bind_joint: waist_yaw_joint
+          - name: left_shoulder_pitch_joint_sensor
+            bind_joint: left_shoulder_pitch_joint
+          - name: left_shoulder_roll_joint_sensor
+            bind_joint: left_shoulder_roll_joint
+          - name: left_shoulder_yaw_joint_sensor
+            bind_joint: left_shoulder_yaw_joint
+          - name: left_elbow_joint_sensor
+            bind_joint: left_elbow_joint
+          - name: left_wrist_yaw_joint_sensor
+            bind_joint: left_wrist_yaw_joint
+          - name: left_wrist_pitch_joint_sensor
+            bind_joint: left_wrist_pitch_joint
+          - name: left_wrist_roll_joint_sensor
+            bind_joint: left_wrist_roll_joint
+          - name: right_shoulder_pitch_joint_sensor
+            bind_joint: right_shoulder_pitch_joint
+          - name: right_shoulder_roll_joint_sensor
+            bind_joint: right_shoulder_roll_joint
+          - name: right_shoulder_yaw_joint_sensor
+            bind_joint: right_shoulder_yaw_joint
+          - name: right_elbow_joint_sensor
+            bind_joint: right_elbow_joint
+          - name: right_wrist_yaw_joint_sensor
+            bind_joint: right_wrist_yaw_joint
+          - name: right_wrist_pitch_joint_sensor
+            bind_joint: right_wrist_pitch_joint
+          - name: right_wrist_roll_joint_sensor
+            bind_joint: right_wrist_roll_joint
