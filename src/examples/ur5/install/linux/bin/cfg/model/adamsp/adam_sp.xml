@@ -506,6 +506,96 @@
   </actuator>
   
   <sensor>
+    <jointpos name="pos_left_hip_pitch_joint" joint="left_hip_pitch_joint" />
+    <jointpos name="pos_left_hip_roll_joint" joint="left_hip_roll_joint" />
+    <jointpos name="pos_left_hip_yaw_joint" joint="left_hip_yaw_joint" />
+    <jointpos name="pos_left_knee_joint" joint="left_knee_joint" />
+    <jointpos name="pos_left_ankle_pitch_joint" joint="left_ankle_pitch_joint" />
+    <jointpos name="pos_left_ankle_roll_joint" joint="left_ankle_roll_joint" />
+    <jointpos name="pos_right_hip_pitch_joint" joint="right_hip_pitch_joint" />
+    <jointpos name="pos_right_hip_roll_joint" joint="right_hip_roll_joint" />
+    <jointpos name="pos_right_hip_yaw_joint" joint="right_hip_yaw_joint" />
+    <jointpos name="pos_right_knee_joint" joint="right_knee_joint" />
+    <jointpos name="pos_right_ankle_pitch_joint" joint="right_ankle_pitch_joint" />
+    <jointpos name="pos_right_ankle_roll_joint" joint="right_ankle_roll_joint" />
+    <jointpos name="pos_waist_roll_joint" joint="waist_roll_joint" />
+    <jointpos name="pos_waist_pitch_joint" joint="waist_pitch_joint" />
+    <jointpos name="pos_waist_yaw_joint" joint="waist_yaw_joint" />
+    <jointpos name="pos_left_shoulder_pitch_joint" joint="left_shoulder_pitch_joint" />
+    <jointpos name="pos_left_shoulder_roll_joint" joint="left_shoulder_roll_joint" />
+    <jointpos name="pos_left_shoulder_yaw_joint" joint="left_shoulder_yaw_joint" />
+    <jointpos name="pos_left_elbow_joint" joint="left_elbow_joint" />
+    <jointpos name="pos_left_wrist_yaw_joint" joint="left_wrist_yaw_joint" />
+    <jointpos name="pos_left_wrist_pitch_joint" joint="left_wrist_pitch_joint" />
+    <jointpos name="pos_left_wrist_roll_joint" joint="left_wrist_roll_joint" />
+    <jointpos name="pos_right_shoulder_pitch_joint" joint="right_shoulder_pitch_joint" />
+    <jointpos name="pos_right_shoulder_roll_joint" joint="right_shoulder_roll_joint" />
+    <jointpos name="pos_right_shoulder_yaw_joint" joint="right_shoulder_yaw_joint" />
+    <jointpos name="pos_right_elbow_joint" joint="right_elbow_joint" />
+    <jointpos name="pos_right_wrist_yaw_joint" joint="right_wrist_yaw_joint" />
+    <jointpos name="pos_right_wrist_pitch_joint" joint="right_wrist_pitch_joint" />
+    <jointpos name="pos_right_wrist_roll_joint" joint="right_wrist_roll_joint" />
+
+    <jointvel name="vel_left_hip_pitch_joint" joint="left_hip_pitch_joint" />
+    <jointvel name="vel_left_hip_roll_joint" joint="left_hip_roll_joint" />
+    <jointvel name="vel_left_hip_yaw_joint" joint="left_hip_yaw_joint" />
+    <jointvel name="vel_left_knee_joint" joint="left_knee_joint" />
+    <jointvel name="vel_left_ankle_pitch_joint" joint="left_ankle_pitch_joint" />
+    <jointvel name="vel_left_ankle_roll_joint" joint="left_ankle_roll_joint" />
+    <jointvel name="vel_right_hip_pitch_joint" joint="right_hip_pitch_joint" />
+    <jointvel name="vel_right_hip_roll_joint" joint="right_hip_roll_joint" />
+    <jointvel name="vel_right_hip_yaw_joint" joint="right_hip_yaw_joint" />
+    <jointvel name="vel_right_knee_joint" joint="right_knee_joint" />
+    <jointvel name="vel_right_ankle_pitch_joint" joint="right_ankle_pitch_joint" />
+    <jointvel name="vel_right_ankle_roll_joint" joint="right_ankle_roll_joint" />
+    <jointvel name="vel_waist_roll_joint" joint="waist_roll_joint" />
+    <jointvel name="vel_waist_pitch_joint" joint="waist_pitch_joint" />
+    <jointvel name="vel_waist_yaw_joint" joint="waist_yaw_joint" />
+    <jointvel name="vel_left_shoulder_pitch_joint" joint="left_shoulder_pitch_joint" />
+    <jointvel name="vel_left_shoulder_roll_joint" joint="left_shoulder_roll_joint" />
+    <jointvel name="vel_left_shoulder_yaw_joint" joint="left_shoulder_yaw_joint" />
+    <jointvel name="vel_left_elbow_joint" joint="left_elbow_joint" />
+    <jointvel name="vel_left_wrist_yaw_joint" joint="left_wrist_yaw_joint" />
+    <jointvel name="vel_left_wrist_pitch_joint" joint="left_wrist_pitch_joint" />
+    <jointvel name="vel_left_wrist_roll_joint" joint="left_wrist_roll_joint" />
+    <jointvel name="vel_right_shoulder_pitch_joint" joint="right_shoulder_pitch_joint" />
+    <jointvel name="vel_right_shoulder_roll_joint" joint="right_shoulder_roll_joint" />
+    <jointvel name="vel_right_shoulder_yaw_joint" joint="right_shoulder_yaw_joint" />
+    <jointvel name="vel_right_elbow_joint" joint="right_elbow_joint" />
+    <jointvel name="vel_right_wrist_yaw_joint" joint="right_wrist_yaw_joint" />
+    <jointvel name="vel_right_wrist_pitch_joint" joint="right_wrist_pitch_joint" />
+    <jointvel name="vel_right_wrist_roll_joint" joint="right_wrist_roll_joint" />
+
+    <jointactuatorfrc name="force_left_hip_pitch_joint" joint="left_hip_pitch_joint" />
+    <jointactuatorfrc name="force_left_hip_roll_joint" joint="left_hip_roll_joint" />
+    <jointactuatorfrc name="force_left_hip_yaw_joint" joint="left_hip_yaw_joint" />
+    <jointactuatorfrc name="force_left_knee_joint" joint="left_knee_joint" />
+    <jointactuatorfrc name="force_left_ankle_pitch_joint" joint="left_ankle_pitch_joint" />
+    <jointactuatorfrc name="force_left_ankle_roll_joint" joint="left_ankle_roll_joint" />
+    <jointactuatorfrc name="force_right_hip_pitch_joint" joint="right_hip_pitch_joint" />
+    <jointactuatorfrc name="force_right_hip_roll_joint" joint="right_hip_roll_joint" />
+    <jointactuatorfrc name="force_right_hip_yaw_joint" joint="right_hip_yaw_joint" />
+    <jointactuatorfrc name="force_right_knee_joint" joint="right_knee_joint" />
+    <jointactuatorfrc name="force_right_ankle_pitch_joint" joint="right_ankle_pitch_joint" />
+    <jointactuatorfrc name="force_right_ankle_roll_joint" joint="right_ankle_roll_joint" />
+    <jointactuatorfrc name="force_waist_roll_joint" joint="waist_roll_joint" />
+    <jointactuatorfrc name="force_waist_pitch_joint" joint="waist_pitch_joint" />
+    <jointactuatorfrc name="force_waist_yaw_joint" joint="waist_yaw_joint" />
+    <jointactuatorfrc name="force_left_shoulder_pitch_joint" joint="left_shoulder_pitch_joint" />
+    <jointactuatorfrc name="force_left_shoulder_roll_joint" joint="left_shoulder_roll_joint" />
+    <jointactuatorfrc name="force_left_shoulder_yaw_joint" joint="left_shoulder_yaw_joint" />
+    <jointactuatorfrc name="force_left_elbow_joint" joint="left_elbow_joint" />
+    <jointactuatorfrc name="force_left_wrist_yaw_joint" joint="left_wrist_yaw_joint" />
+    <jointactuatorfrc name="force_left_wrist_pitch_joint" joint="left_wrist_pitch_joint" />
+    <jointactuatorfrc name="force_left_wrist_roll_joint" joint="left_wrist_roll_joint" />
+    <jointactuatorfrc name="force_right_shoulder_pitch_joint" joint="right_shoulder_pitch_joint" />
+    <jointactuatorfrc name="force_right_shoulder_roll_joint" joint="right_shoulder_roll_joint" />
+    <jointactuatorfrc name="force_right_shoulder_yaw_joint" joint="right_shoulder_yaw_joint" />
+    <jointactuatorfrc name="force_right_elbow_joint" joint="right_elbow_joint" />
+    <jointactuatorfrc name="force_right_wrist_yaw_joint" joint="right_wrist_yaw_joint" />
+    <jointactuatorfrc name="force_right_wrist_pitch_joint" joint="right_wrist_pitch_joint" />
+    <jointactuatorfrc name="force_right_wrist_roll_joint" joint="right_wrist_roll_joint" />
+
     <velocimeter name="local_linvel_pelvis" site="imu_in_pelvis" />
     <accelerometer name="accelerometer_pelvis" site="imu_in_pelvis" />
     <gyro name="gyro_pelvis" site="imu_in_pelvis" />
