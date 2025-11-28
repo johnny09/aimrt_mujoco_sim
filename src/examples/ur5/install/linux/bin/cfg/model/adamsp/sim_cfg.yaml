@@ -188,3 +188,12 @@ MujocoSimModule:
             bind_joint: right_wrist_pitch_joint
           - name: right_wrist_roll_joint_sensor
             bind_joint: right_wrist_roll_joint
+    - topic: /adamsp/imu_pelvis
+      frequency: 500
+      executor: work_thread_pool
+      type: imu_sensor
+      options:
+        bind_site: imu_in_pelvis
+        bind_framequat: orientation_pelvis
+        bind_gyro: gyro_pelvis
+        bind_accelerometer: accelerometer_pelvis

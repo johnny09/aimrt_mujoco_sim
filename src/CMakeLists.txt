@@ -7,6 +7,8 @@ add_subdirectory(protocols)
 
 add_subdirectory(module/mujoco_sim_module)
 
+add_subdirectory(module/joy_stick_module)
+
 add_subdirectory(pkg/mujoco_sim_pkg)
 
 if(AIMRT_MUJOCO_SIM_BUILD_EXAMPLES)

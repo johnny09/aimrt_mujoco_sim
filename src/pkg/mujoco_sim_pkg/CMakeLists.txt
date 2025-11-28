@@ -26,7 +26,8 @@ target_sources(${CUR_TARGET_NAME} PRIVATE ${src})
 target_link_libraries(
   ${CUR_TARGET_NAME}
   PRIVATE aimrt::interface::aimrt_pkg_c_interface
-          ${CUR_SUPERIOR_NAMESPACE}::mujoco_sim_module)
+          ${CUR_SUPERIOR_NAMESPACE}::mujoco_sim_module
+          ${CUR_SUPERIOR_NAMESPACE}::joy_stick_module)
 
 # Set installation of target
 if(AIMRT_MUJOCO_SIM_INSTALL)

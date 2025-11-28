@@ -1,0 +1,9 @@
+pub_freq: 100 #数据发布频率，单位：Hz
+
+pub_topic: /joy_cmd #数据发布话题
+
+joystick:
+  io_name: js1
+  type: xbox
+  connect_type: usb
+
