@@ -30,12 +30,15 @@ target_include_directories(
   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
 
 # 引用aimrt_module_cpp_interface
+# Note: Since we're using aimrt_module_protobuf_interface headers,
+# we need to ensure protobuf is properly linked for include paths
 target_link_libraries(
   ${CUR_TARGET_NAME}
   PRIVATE yaml-cpp::yaml-cpp 
-  PUBLIC  aimrt::interface::aimrt_module_cpp_interface 
+  PUBLIC  aimrt::interface::aimrt_module_cpp_interface
+          protobuf::libprotobuf
           MC::motioncontroller
-          johnny_my_proto_pb_gencode)
+          aimrt_mujoco_sim_protocols_my_proto_pb_gencode)
 
 # Install config files
 install(

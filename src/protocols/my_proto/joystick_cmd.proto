@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package my_proto;
+
+/*
+for xbox controller:
+the order of buttons and axes in key_value corresponds to the following 20 keys:
+{
+    "A",  "B",  "X",  "Y",  "LB", "RB", "START", "BACK", "HOME", "LO",
+    "RO", "LX", "LY", "RX", "RY", "LT", "RT",    "XX",   "YY"
+}
+*/
+message joystick_cmd {
+  repeated int32 key_value = 1;  // for buttons, 1 for pressed, 0 for released; for axes, the value range is -100 to 100
+}

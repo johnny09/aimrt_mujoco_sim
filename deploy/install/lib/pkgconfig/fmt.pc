@@ -1,0 +1,11 @@
+prefix=/home/nuc/Documents/my_github/aimrt_mujoco_sim/deploy/install
+exec_prefix=/home/nuc/Documents/my_github/aimrt_mujoco_sim/deploy/install
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: fmt
+Description: A modern formatting library
+Version: 10.2.1
+Libs: -L${libdir} -lfmt
+Cflags: -I${includedir}
+

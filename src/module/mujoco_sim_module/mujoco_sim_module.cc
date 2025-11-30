@@ -278,13 +278,12 @@ aimrt::co::Task<void> MujocoSimModule::SimLoop() {
 
   // loop
   auto next_sche_tp = sim_executor_.Now();
-  std::chrono::nanoseconds dt(static_cast<uint64_t>(m_->opt.timestep * 1e9));
 
+  std::chrono::nanoseconds dt(static_cast<uint64_t>(m_->opt.timestep * 1e9));
   while (!sim_->exitrequest.load()) {
     next_sche_tp += dt;
-
     co_await aimrt::co::ScheduleAt(sim_scheduler, next_sche_tp);
-
+    AIMRT_INFO("!!!!!!!SimLoop");
     {
       const std::unique_lock<std::recursive_mutex> lock(sim_->mtx);
 

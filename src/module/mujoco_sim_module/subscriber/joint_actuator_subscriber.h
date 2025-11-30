@@ -3,6 +3,9 @@
 
 #pragma once
 
+#include <mutex>
+#include <vector>
+
 #include "mujoco_sim_module/global.h"
 #include "mujoco_sim_module/subscriber/subscriber_base.h"
 
@@ -51,6 +54,14 @@ class JointActuatorSubscriberBase : public SubscriberBase {
     int32_t vel_addr;
   };
 
+  struct JointCommandData {
+    double position = 0.0;
+    double velocity = 0.0;
+    double effort = 0.0;
+    double stiffness = 0.0;
+    double damping = 0.0;
+  };
+
   Options options_;
   bool stop_flag_ = true;
 
@@ -60,7 +71,9 @@ class JointActuatorSubscriberBase : public SubscriberBase {
 
   size_t joint_num_ = 0;
   std::vector<size_t> actuator_addr_vec_;
-  std::atomic<double*> command_array_{nullptr};
+  std::vector<double> current_command_array_;
+  std::vector<JointCommandData> joint_command_data_;
+  std::mutex command_array_mutex_;
   std::vector<std::string> joint_names_vec_;
   std::vector<std::string> joint_actuator_type_vec_;
 

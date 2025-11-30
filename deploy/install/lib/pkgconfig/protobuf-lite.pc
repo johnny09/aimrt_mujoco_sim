@@ -1,0 +1,11 @@
+prefix=/home/nuc/Documents/my_github/aimrt_mujoco_sim/deploy/install
+exec_prefix=/home/nuc/Documents/my_github/aimrt_mujoco_sim/deploy/install
+libdir=/home/nuc/Documents/my_github/aimrt_mujoco_sim/deploy/install/lib
+includedir=/home/nuc/Documents/my_github/aimrt_mujoco_sim/deploy/install/include
+
+Name: Protocol Buffers
+Description: Google's Data Interchange Format
+Version: 3.21.12.0
+Libs: -L${libdir} -lprotobuf-lite 
+Cflags: -I${includedir}
+Conflicts: protobuf

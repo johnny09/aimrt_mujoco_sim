@@ -27,6 +27,10 @@ aimrt:
         type: asio_thread
         options:
           thread_num: 4
+      - name: read_joy_data_executor
+        type: simple_thread
+      - name: joy_thread_executor
+        type: asio_thread
   channel:
     backends:
       - type: zenoh
@@ -50,10 +54,15 @@ aimrt:
   module:
     pkgs:
       - path: ./libmujoco_sim_pkg.so
-        enable_modules: [MujocoSimModule]
+        enable_modules: 
+          - MujocoSimModule
+          - JoyStickModule
     modules:
       - name: MujocoSimModule
         log_lvl: INFO
+      - name: JoyStickModule
+        log_lvl: INFO
+        cfg_file_path: ./cfg/joy_stick_module/joy_config.yaml
 
 # Module custom configuration
 MujocoSimModule:

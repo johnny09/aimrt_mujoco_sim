@@ -1,0 +1,12 @@
+[settings]
+os=Linux
+arch=armv7hf
+compiler=gcc
+build_type=Release
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=9
+[buildenv]
+CC=/home/johnny/Downloads/cross_compile_toolchain/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc
+CXX=/home/johnny/Downloads/cross_compile_toolchain/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-g++
+LD=/home/johnny/Downloads/cross_compile_toolchain/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-ld
