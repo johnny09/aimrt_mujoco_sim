@@ -17,3 +17,5 @@ test_log/
 tmp/
 
 compile_commands.json
+
+deploy/
