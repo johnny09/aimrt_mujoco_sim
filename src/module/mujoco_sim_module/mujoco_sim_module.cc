@@ -283,7 +283,6 @@ aimrt::co::Task<void> MujocoSimModule::SimLoop() {
   while (!sim_->exitrequest.load()) {
     next_sche_tp += dt;
     co_await aimrt::co::ScheduleAt(sim_scheduler, next_sche_tp);
-    AIMRT_INFO("!!!!!!!SimLoop");
     {
       const std::unique_lock<std::recursive_mutex> lock(sim_->mtx);
 

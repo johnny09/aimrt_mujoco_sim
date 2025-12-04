@@ -57,11 +57,11 @@ aimrt:
 
 # Module custom configuration
 MujocoSimModule:
-  simulation_model_path: ./cfg/model/ur5/sim_scene.xml
+  simulation_model_path: ./cfg/model/ur5/scene.xml
   sim_executor: work_thread_pool
   gui_executor: gui_thread
   subscriber_options:
-    - topic: /ur5/joint_command
+    - topic: /joint_cmd
       type: joint_actuator
       options:
         joints:
@@ -78,7 +78,7 @@ MujocoSimModule:
           - name: wrist_3_joint
             bind_joint: wrist_3_joint
   publisher_options:
-    - topic: /ur5/joint_state
+    - topic: /joint_state
       frequency: 500
       executor: work_thread_pool
       type: joint_sensor
