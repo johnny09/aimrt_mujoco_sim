@@ -77,7 +77,7 @@ class JointSensorPublisherBase : public PublisherBase {
   aimrt::channel::PublisherRef publisher_;
   aimrt::executor::ExecutorRef executor_;
 
-  uint32_t channel_frq_ = 1000;
+  uint32_t channel_frq_ = 500;
   double avg_interval_base_ = 1.0;
   double avg_interval_ = 0;
 

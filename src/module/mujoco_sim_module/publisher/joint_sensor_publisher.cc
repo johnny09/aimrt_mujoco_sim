@@ -63,7 +63,6 @@ void JointSensorPublisherBase::InitializeBase(YAML::Node options_node) {
     options_ = options_node.as<Options>();
 
   avg_interval_base_ = GetAvgIntervalBase(channel_frq_);
-
   RegisterSensorAddr();
 
   options_node = options_;
@@ -77,9 +76,12 @@ void JointSensorPublisher::Initialize(YAML::Node options_node) {
 }
 
 void JointSensorPublisher::PublishSensorData() {
-  static constexpr uint32_t ONE_MB = 1024 * 1024;
+  // static constexpr uint32_t ONE_MB = 1024 * 1024;
 
-  if (counter_++ < avg_interval_) return;
+  // if (counter_++ < avg_interval_) {
+  //   AIMRT_INFO("publish sensor data skip. counter_: {}, avg_interval_: {}", counter_, avg_interval_);
+  //   return;
+  // }
 
   std::unique_ptr<SensorStateGroup[]> state_array(new SensorStateGroup[joint_num_]);
 
@@ -103,15 +105,16 @@ void JointSensorPublisher::PublishSensorData() {
     }
 
     aimrt::channel::Publish(publisher_, joint_state);
+    // AIMRT_INFO("publish sensor data done.");
   });
 
-  avg_interval_ += avg_interval_base_;
+  // avg_interval_ += avg_interval_base_;
 
-  // avoid overflow
-  if (counter_ > ONE_MB) {
-    avg_interval_ -= ONE_MB;
-    counter_ -= ONE_MB;
-  }
+  // // avoid overflow
+  // if (counter_ > ONE_MB) {
+  //   avg_interval_ -= ONE_MB;
+  //   counter_ -= ONE_MB;
+  // }
 }
 
 #ifdef AIMRT_MUJOCO_SIM_BUILD_WITH_ROS2

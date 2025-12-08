@@ -5,6 +5,6 @@ set_namespace()
 
 add_subdirectory(my_proto)
 
-if(AIMRT_MUJOCO_SIM_BUILD_EXAMPLES)
-  add_subdirectory(examples/inverted_pendulum)
-endif()
+# if(AIMRT_MUJOCO_SIM_BUILD_EXAMPLES)
+#   add_subdirectory(examples/inverted_pendulum)
+# endif()

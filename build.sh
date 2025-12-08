@@ -19,8 +19,7 @@ cmake -B ${deploy_folder}/build/Release/generators \
     -DCMAKE_BUILD_TYPE=Release \
     -DAIMRT_MUJOCO_SIM_INSTALL=ON \
     -DAIMRT_MUJOCO_SIM_BUILD_WITH_ROS2=OFF \
-    -DAIMRT_MUJOCO_SIM_BUILD_TESTS=OFF \
-    -DAIMRT_MUJOCO_SIM_BUILD_EXAMPLES=ON \
+    -DAIMRT_MUJOCO_SIM_BUILD_TESTS=OFF
     $@
 
 cmake --build ${deploy_folder}/build/Release/generators --target install --parallel $(nproc)

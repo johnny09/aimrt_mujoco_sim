@@ -31,8 +31,7 @@ Aimrt_Mujoco_Sim 旨在为机器人开发者提供一个快速上手的仿真平
 ./build.sh \
   -DAIMRT_MUJOCO_SIM_INSTALL=ON \           # 是否生成安装包
   -DCMAKE_INSTALL_PREFIX=./build/install \  # 安装路径（默认：当前目录的 build/install）
-  -DAIMRT_MUJOCO_SIM_BUILD_WITH_ROS2=ON \   # 是否启用 ROS2 支持, 默认为 OFF
-  -DAIMRT_MUJOCO_SIM_BUILD_EXAMPLES=ON      # 是否编译示例程序, 默认为 OFF
+  -DAIMRT_MUJOCO_SIM_BUILD_WITH_ROS2=ON   # 是否启用 ROS2 支持, 默认为 OFF
 ```
 
 ### 1.2.3 运行 (run)

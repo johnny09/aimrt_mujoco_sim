@@ -10,7 +10,7 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 # Some option
 option(AIMRT_MUJOCO_SIM_BUILD_TESTS "AimRT Mujoco Sim build tests." OFF)
-option(AIMRT_MUJOCO_SIM_BUILD_EXAMPLES "AimRT Mujoco Sim build examples." OFF)
+# option(AIMRT_MUJOCO_SIM_BUILD_EXAMPLES "AimRT Mujoco Sim build examples." OFF)
 option(AIMRT_MUJOCO_SIM_INSTALL "Enable installation of AimRT Mujoco Sim." ON)
 
 # Some necessary settings
